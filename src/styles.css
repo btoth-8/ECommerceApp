@@ -1,0 +1,23 @@
+body{
+    background-color: #FFDEE9;
+    background-image: linear-gradient(90deg, #FFDEE9 0%, #B5FFFC 100%);
+    
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.btn-primary{
+    border-color: purple;
+    background-color: purple;
+}
+
+.btn-primary:hover{
+    background-color: #e25eff;
+    border-color: #e25eff;
+
+}
+
+.btn-primary:disabled{
+    background-color: purple;
+    border-color: purple;
+}

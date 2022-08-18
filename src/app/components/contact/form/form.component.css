@@ -1,0 +1,55 @@
+form{
+    margin-top: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 10px solid #FFDEE9;;
+    padding: 50px;
+    border-radius: 30px;
+    background-color: #FFDEE9;
+    
+}
+
+table{
+    
+    margin-left: 75%;
+    float: left;
+    border: 10px solid #B5FFFC;;
+    padding: 50px;
+    border-radius: 30px;
+    position: absolute;
+    background-color:#B5FFFC ;
+    width: 260px;
+} 
+
+span{
+    color: red;
+}
+button{
+    background-color: purple;
+}
+
+.container{
+    margin-top: 20px;
+}
+
+ #icon1{ 
+   align-items: center;
+  justify-content: center;
+ margin-left: 80px;  
+}
+
+ #icon2{
+    margin-left: 80px; 
+ 
+ }
+
+ #icon3{
+  margin-left: 100px; 
+    
+ }
+
+.col-sm{
+    margin-left: 40px;
+    justify-content: center;
+}

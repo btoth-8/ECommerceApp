@@ -1,0 +1,41 @@
+
+#button{
+    background-color: purple;
+}
+.container{
+    width: 400px;
+
+}
+#card{
+    margin: 10px;
+}
+
+*{
+box-sizing: border-box;
+}
+
+.card-img-top{
+    width: 100%;
+    height: 225;
+}
+
+/* .btn {
+    border: 5px solid;
+    font-style: white;
+    justify-content: center;
+    text-decoration: none;
+    transition: all .4s ease;
+    background-color: purple;
+
+  } */
+
+#button1, #button2{
+    background-color: purple;
+
+}
+#button1{
+    margin-right: 5px;
+}
+#button2{
+    margin-left: 5px;
+}

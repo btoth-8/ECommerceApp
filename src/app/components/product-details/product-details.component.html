@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col">
+    <div class="product-view-container">
+      <div class="product-view-content">
+        <div class="image-section">
+          <img [src]="detailsList.imageUrl" alt="Product picture" />
+        </div>
+
+        <div class="product-detail-section">
+          <p class="product-name">{{ detailsList.name }}</p>
+          <p class="product-description">
+            {{ detailsList.description }}
+          </p>
+          <p class="product-price">{{ detailsList.price | currency: "EUR" }}</p>
+          <!-- <button class="btn btn-primary">Add to cart</button> -->
+          <br />
+          <button routerLink="/" class="btn btn-primary">
+            See other products
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
