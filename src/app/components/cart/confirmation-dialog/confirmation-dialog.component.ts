@@ -14,7 +14,7 @@ export class ConfirmationDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  /* removeItem(item: Product){
+/*  removeItem(item: Product){
     this.service.removeCartItem(item);
-  } */
+  }  */
 }

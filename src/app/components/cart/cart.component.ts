@@ -14,6 +14,9 @@ export class CartComponent implements OnInit {
 
   cartTotal = 0;
 
+  product: any;
+  
+
   constructor(private msg: MessengerService, public dialog: MatDialog) {}
 
   ngOnInit() {
@@ -22,10 +25,7 @@ export class CartComponent implements OnInit {
     });
   }
 
-  finalizeDialog() {
-    this.dialog.open(FinalizeDialogComponent);
-  }
-
+  /* ADDING PRODUCT TO CART */
   addProductToCart(product: Product) {
     let productExists = false;
 
@@ -44,6 +44,7 @@ export class CartComponent implements OnInit {
         qty: 1,
         price: product.price,
         imageUrl: product.imageUrl,
+        purchased:product.purchased
       });
     }
     this.cartItems.forEach((item) => {
@@ -51,9 +52,17 @@ export class CartComponent implements OnInit {
     });
   }
 
+/* CHANGING PURCHASED PROPERTY TO TRUE FOR DISABLED PURCHASE BUTTON */
+  purchaseDisabled(product:Product){
+    this.product.purchased=true;
+    console.log(product.purchased);
+  }
 
 }
 
+ /*  finalizeDialog() {
+    this.dialog.open(FinalizeDialogComponent);
+  } */
 
 /*  if (this.cartItems.length === 0) {
       this.cartItems.push({

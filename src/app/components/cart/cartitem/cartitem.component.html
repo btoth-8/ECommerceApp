@@ -14,10 +14,11 @@
       <div class="col">{{ cartItem.price | currency: "EUR" }}</div>
       <div class="col">{{ cartItem.qty }}</div>
       <div>
-        <!-- <button class="btn btn-primary" (click)="confirmationDialog()">
+        <button (click)="removeItem(item)" class="btn btn-primary">
           Remove from cart
-        </button> -->
+        </button>
       </div>
     </div>
   </div>
 </div>
+<!-- (click)="confirmationDialog() -->

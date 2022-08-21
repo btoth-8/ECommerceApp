@@ -6,3 +6,10 @@ nav{
 #navitem2{
     font-style: purple;
 }
+
+a{
+    font-size: larger;
+}
+.nav-link{
+    font-style: purple;
+}

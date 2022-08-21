@@ -1,6 +1,4 @@
-<!-- <app-navbar></app-navbar> -->
-
-<!-- EMPZY SHOPPING CART - WORKS -->
+<!-- EMPTY SHOPPING CART-->
 <ng-container *ngIf="cartItems.length === 0">
   <div class="container-sm">
     <div class="card">
@@ -21,11 +19,11 @@
   No products in the cart.
 </div> -->
 
+<!-- SHOPPING CART WITH ITEMS -->
 <ul *ngIf="cartItems.length > 0" class="list-group">
   <li class="list-group-item">
     <h3>My Cart</h3>
   </li>
-
   <li class="list-group-item" *ngFor="let item of cartItems">
     <app-cartitem [cartItem]="item"></app-cartitem>
   </li>
@@ -33,11 +31,17 @@
     <span>Total: {{ cartTotal | currency: "EUR" }} </span>
   </li>
   <li class="list-group-item">
-    <button id="btnFinalize" class="btn btn-primary" (click)="finalizeDialog()">
+    <button
+      id="btnFinalize"
+      class="btn btn-primary"
+      (click)="purchaseDisabled(product)"
+    >
       Finalize purchase
     </button>
   </li>
 </ul>
+
+<!-- EMPTY CART -->
 <!--  <li class="list-group-item">
     <button id="btnFinalize" class="btn btn-primary" (click)="emptyCart()">
       Empty cart
