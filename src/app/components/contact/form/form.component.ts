@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -11,6 +10,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
+  //Validators for form
   contactForm = new FormGroup({
     name: new FormControl('', [
       Validators.required,
@@ -24,7 +24,6 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  userData: any;
   public formData: any = {};
 
   get name() {
@@ -36,38 +35,15 @@ export class FormComponent implements OnInit {
   get text() {
     return this.contactForm.get('text') as FormControl;
   }
-  /* SAVE DATA TO LOCALSTORAGE, MODAL */
+
+  /* SAVE DATA TO LOCALSTORAGE */
   formDialog() {
     this.formData = Object.assign(this.formData, this.contactForm.value);
     localStorage.setItem('Data', JSON.stringify(this.formData));
     console.log(this.contactForm.value);
     this.contactForm.reset();
-    this.modalService.open(JSON.stringify(localStorage.getItem('Data')!));
-  }
-
-  unique() {
-    /* this.formData=Object.assign(this.formData, this.contactForm.value.name)
-  localStorage.setItem('name', JSON.stringify(this.formData))  
-  this.formData=Object.assign(this.formData, this.contactForm.value.email)
-  localStorage.setItem('email', JSON.stringify(this.formData))  
-  this.formData=Object.assign(this.formData, this.contactForm.value.text)
-  localStorage.setItem('text', JSON.stringify(this.formData))  
-      console.log(this.contactForm.value.name); 
-      console.log(this.contactForm.value.email); 
-      console.log(this.contactForm.value.text); 
-      this.contactForm.reset(); */
-  }
-  open() {
-    /*      this.userData = this.modalService.open(JSON.stringify(localStorage.getItem('Data')!))
-     */
-    /*    this.userName=this.modalService.open(localStorage.getItem('name'));
-     */
-    /* this.userEmail=this.modalService.open(localStorage.getItem('email'));  */
-    /* this.userText=this.modalService.open(localStorage.getItem('text'));  */
-    /*     console.log(localStorage.getItem('name')) */
+    this.dialog.open(DialogComponent, {
+      data: { x: localStorage.getItem('Data')! },
+    });
   }
 }
-/* localStorage.setItem('name', JSON.stringify(this.name));
-      localStorage.setItem('email', JSON.stringify(this.email));
-      localStorage.setItem('text', JSON.stringify(this.text));
-      console.log(this.email, this.name, this.text) */

@@ -5,16 +5,16 @@ import { MessengerService } from 'src/app/services/messenger-service/messenger.s
 @Component({
   selector: 'app-confirmation-dialog',
   templateUrl: './confirmation-dialog.component.html',
-  styleUrls: ['./confirmation-dialog.component.css']
+  styleUrls: ['./confirmation-dialog.component.css'],
 })
 export class ConfirmationDialogComponent implements OnInit {
+  item: any;
+  constructor(public service: MessengerService) {}
 
-  item: any
-  constructor(public service: MessengerService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-/*  removeItem(item: Product){
+  //REMOVING ITEM
+  /*  removeItem(item: Product){
     this.service.removeCartItem(item);
   }  */
 }

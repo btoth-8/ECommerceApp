@@ -1,48 +1,45 @@
 import { Injectable } from '@angular/core';
-import {Subject} from 'rxjs'
+import { Subject } from 'rxjs';
 import { Product } from 'src/app/models/product';
-import { BehaviorSubject } from 'rxjs';
-
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MessengerService {
+  public cartItemList: any = [];
 
-  public cartItemList: any =[]
+  subject = new Subject<Product>();
 
-  subject = new Subject<Product>()
-  public productList = new BehaviorSubject<any>([]);
+  constructor() {}
 
-  constructor() { }
-
-  sendMsg(product: Product){
-    this.subject.next(product)
+  sendMsg(product: Product) {
+    this.subject.next(product); //Triggering product sending
   }
 
-  getMsg(){
-    return this.subject.asObservable()
+  getMsg() {
+    return this.subject.asObservable(); //Returning product as observable from sendMsg function
   }
-  
-  removeCartItem(product: Product){
+
+  //POSSIBILITY FOR REMOVING ITEMS FORM CART
+  removeCartItem(product: Product) {
     let indexToRemove: number = -1;
     let index: number = 0;
 
-    for(const cardItem of this.cartItemList){
-      if(product.id === cardItem.id){
+    for (const cardItem of this.cartItemList) {
+      if (product.id === cardItem.id) {
         indexToRemove = index;
       }
-      
+
       index++;
     }
 
-    if(indexToRemove !== -1){
-       this.cartItemList.splice(indexToRemove,1); 
-    }  
-}
+    if (indexToRemove !== -1) {
+      this.cartItemList.splice(indexToRemove, 1);
+    }
+  }
 
-/* ANOTHER POSSIBILITY FOR REMOVING CART ITEMS */
-/*   removeCartItem(product: Product){
+  // ANOTHER POSSIBILITY FOR REMOVING CART ITEMS
+  /*   removeCartItem(product: Product){
     let indexToRemove: number = 0;
     this.cartItemList.map((a:any, index:any)=>{
       if(product.id=== a.id){
@@ -52,10 +49,4 @@ export class MessengerService {
     
     this.cartItemList.splice(indexToRemove,1); 
 } */
-
-/* REMOVE EVERY ITEM FROM LIST */
-  /* removeAll(){
-    this.cartItemList = []
-    this.productList.next(this.cartItemList);
-  }  */
 }

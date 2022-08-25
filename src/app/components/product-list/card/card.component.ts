@@ -20,19 +20,19 @@ export class CardComponent implements OnInit {
   }
 
   handleAddToCart() {
-    this.msg.sendMsg(this.productItem);
+    this.msg.sendMsg(this.productItem); //Sending one product with messenger service, called by clicking on Purchase button
   }
 
   /* DISABLE BUTTON IF PURCHASED PROPERTY IS TRUE */
-  purchasedProduct(productItem: Product) {
-    if (this.productItem.purchased === true) {
-      this.buttonDisabled = true;
+  /*  purchasedProduct() {
+    if (this.productItem?.purchased.valueOf()===true) {
+      this.buttonDisabled=true;
     }
-  }
+  } */
 
+  /* ANOTHER SOLUTION FOR DISABLING BUTTON */
   /* checkPurchased(producItem: Product){
     if(this.productItem.includes(this.productItem.purchased===true))
     {
-    
     }} */
 }

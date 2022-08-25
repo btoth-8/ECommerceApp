@@ -2,7 +2,6 @@ import { ConfirmationDialogComponent } from './../confirmation-dialog/confirmati
 import { Component, Input, OnInit } from '@angular/core';
 import { MessengerService } from 'src/app/services/messenger-service/messenger.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Product } from 'src/app/models/product';
 
 @Component({
@@ -23,6 +22,7 @@ export class CartitemComponent implements OnInit {
     this.dialog.open(ConfirmationDialogComponent);
   }
 
+  //Remove cartitem
   removeItem(item: Product) {
     this.service.removeCartItem(item);
   }

@@ -10,7 +10,7 @@
       formControlName="name"
     />
     <span *ngIf="name && name.invalid && name.touched"
-      >This field cannot be left empty and can only contain letters.</span
+      >This field is required</span
     >
   </div>
   <div class="form-group">
@@ -24,7 +24,7 @@
       formControlName="email"
     />
     <span *ngIf="email && email.invalid && email.touched"
-      >This field cannot be left empty and need a proper email.</span
+      >Please enter a valid email address</span
     >
   </div>
   <div class="form-group">
@@ -38,7 +38,7 @@
       formControlName="text"
     ></textarea>
     <span *ngIf="text && text.invalid && text.touched"
-      >This field cannot be left empty and cannot be more than 500 words.</span
+      >This field is required. Max 500 words</span
     >
   </div>
   <!-- SUBMIT BUTTON -->
@@ -46,11 +46,10 @@
     mat-button
     [disabled]="contactForm.invalid"
     class="btn btn-primary"
-    (click)="formDialog(); open()"
+    (click)="formDialog()"
   >
     Submit
   </button>
-  <button mat-button class="btn btn-primary">Clear</button>
 
   <div class="container">
     <div class="row">
@@ -109,30 +108,7 @@
     <div class="row">
       <div class="col-sm">+36202993724</div>
       <div class="col-sm">tthbrgtt@gmail.com</div>
-      <div class="col-sm">2310 SZSZM SAS 47</div>
+      <div class="col-sm">Budapest, Nárciusz u. 5</div>
     </div>
   </div>
 </form>
-<!-- MISCELLANEOUS -->
-<!-- <ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">{{ ugh }}</h4>
-    <button
-      type="button"
-      class="btn-close"
-      aria-label="Close"
-      (click)="d('Cross click')"
-    ></button>
-  </div>
-  <div class="modal-body"></div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="c('Save click')"
-    >
-      Save
-    </button>
-  </div>
-</ng-template>
- -->

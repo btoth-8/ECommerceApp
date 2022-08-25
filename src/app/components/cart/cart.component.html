@@ -14,11 +14,6 @@
   </div>
 </ng-container>
 
-<!-- MŰKÖDŐ CART UGYANAZON AZ OLDALON RAVI ÁLTAL -->
-<!-- <div *ngIf="cartItems.length === 0" class="alert alert-info">
-  No products in the cart.
-</div> -->
-
 <!-- SHOPPING CART WITH ITEMS -->
 <ul *ngIf="cartItems.length > 0" class="list-group">
   <li class="list-group-item">
@@ -31,17 +26,13 @@
     <span>Total: {{ cartTotal | currency: "EUR" }} </span>
   </li>
   <li class="list-group-item">
-    <button
-      id="btnFinalize"
-      class="btn btn-primary"
-      (click)="purchaseDisabled(product)"
-    >
+    <button id="btnFinalize" class="btn btn-primary" (click)="endOfPurchase()">
       Finalize purchase
     </button>
   </li>
 </ul>
 
-<!-- EMPTY CART -->
+<!-- REMOVE ALL ITEMS FROM CART -->
 <!--  <li class="list-group-item">
     <button id="btnFinalize" class="btn btn-primary" (click)="emptyCart()">
       Empty cart

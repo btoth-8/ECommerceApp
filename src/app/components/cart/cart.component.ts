@@ -15,20 +15,20 @@ export class CartComponent implements OnInit {
   cartTotal = 0;
 
   product: any;
-  
 
   constructor(private msg: MessengerService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.msg.getMsg().subscribe((product: Product) => {
+      //Subscribing to observable
       this.addProductToCart(product);
     });
   }
 
-  /* ADDING PRODUCT TO CART */
+  // ADDING PRODUCTS TO CART
   addProductToCart(product: Product) {
     let productExists = false;
-
+    //ONLY INCREASING THE QTY IF PRODUCT IS ALREADY IN THE CART
     for (let i in this.cartItems) {
       if (this.cartItems[i].id === product.id) {
         this.cartItems[i].qty++;
@@ -36,6 +36,7 @@ export class CartComponent implements OnInit {
         break;
       }
     }
+    //ADDING THE PRODUCT TO CART IF IT'S NOT IN THE CART YET
     if (!productExists) {
       this.cartItems.push({
         id: product.id,
@@ -44,7 +45,7 @@ export class CartComponent implements OnInit {
         qty: 1,
         price: product.price,
         imageUrl: product.imageUrl,
-        purchased:product.purchased
+        purchased: product.purchased,
       });
     }
     this.cartItems.forEach((item) => {
@@ -52,50 +53,15 @@ export class CartComponent implements OnInit {
     });
   }
 
-/* CHANGING PURCHASED PROPERTY TO TRUE FOR DISABLED PURCHASE BUTTON */
-  purchaseDisabled(product:Product){
-    this.product.purchased=true;
-    console.log(product.purchased);
+  // CHANGING PURCHASED PROPERTY TO TRUE FOR DISABLED PURCHASE BUTTON
+  purchaseDisabled() {
+    if (this.product.purchased.valueOf() === 'false') {
+      console.log(this.product.purchased);
+      this.product.purchased = true;
+    }
   }
-
-}
-
- /*  finalizeDialog() {
+  //DIALOG FOR END OF PURCHASE
+  endOfPurchase() {
     this.dialog.open(FinalizeDialogComponent);
-  } */
-
-/*  if (this.cartItems.length === 0) {
-      this.cartItems.push({
-        id: product.id,
-        name: product.name,
-        description: product.description,
-        qty: 1,
-        price: product.price,
-        imageUrl: product.imageUrl
-      })
-    } else {
-      for (let i in this.cartItems) {
-        if (this.cartItems[i].id === product.id) {
-          this.cartItems[i].qty++
-          break;
-        } else {
-          this.cartItems.push({
-            id: product.id,
-            name: product.name,
-            description: product.description,
-            qty: 1,
-            price: product.price,
-            imageUrl: product.imageUrl
-          })
-        }
-      }
-    } */
-
-/* {id:1, productId:1, productName: 'Test product 1', qty: 4, price: 100},
-   {id:2, productId:2, productName: 'Test product 2', qty: 2, price: 100},
-   {id:3, productId:3, productName: 'Test product 3', qty: 1, price: 100},
-   {id:4, productId:4, productName: 'Test product 4', qty: 5, price: 100}, */
-
-/*  this.cartItems.forEach(item =>{
-     this.cartTotal += (item.qty * item.price)
-   })  */
+  }
+}
